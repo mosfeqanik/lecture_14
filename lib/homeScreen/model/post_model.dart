@@ -11,7 +11,7 @@ class PostModel {
       this.title, 
       this.body,});
 
-  PostModel.fromJson(dynamic json) {
+  PostModel.fromJson( Map<String, dynamic> json ) {
     userId = json['userId'];
     id = json['id'];
     title = json['title'];

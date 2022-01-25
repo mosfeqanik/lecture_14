@@ -15,15 +15,25 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
 
-        title: const Text('Rest Api Flutter'),
+        title: Obx(()=>Text(_controller.gravityData.value.message??'')),
       ),
 
       body: Container(
         // child: const Center(child: CircularProgressIndicator()),
         child: Obx(()=>ListView.builder(
-          itemCount: _controller.myPostList.length??0,
+          itemCount: _controller.gravityData.value.data?.length??0,
           itemBuilder: (context, index) => ListTile(
-            title: Text(_controller.myPostList[index].title??''),
+
+            leading: Image.network(
+              'https://avatars.githubusercontent.com/u/36180689?v=4',
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+
+            ),
+
+            // title: Text(_controller.myDataListObserable[index].categoryName??''),
+            title: Text(_controller.gravityData.value.data?[index].categoryName??''),
           ),
 
 
